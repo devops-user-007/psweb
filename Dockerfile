@@ -4,13 +4,16 @@ FROM node:10.6.0-alpine
 
 LABEL maintainer="suparnb@gmail.com"
 
-# Copy app to /src
-COPY . /psweb-app
-
+RUN mkdir /psweb-app
 WORKDIR /psweb-app
+
+COPY package.json package.json
 
 # Install node dependencies
 RUN  npm install
+
+# Copy app to /src
+COPY . /psweb-app
 
 EXPOSE 8080
 
