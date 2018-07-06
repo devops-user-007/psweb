@@ -1,18 +1,15 @@
 # Test web-app to use with Pluralsight courses and Docker Deep Dive book
 # Linux x64
-FROM alpine
+FROM node:10.6.0-alpine
 
-LABEL maintainer="nigelpoulton@hotmail.com"
-
-# Install Node and NPM
-RUN apk add --update nodejs nodejs-npm
+LABEL maintainer="suparnb@gmail.com"
 
 # Copy app to /src
-COPY . /src
+COPY . /psweb-app
 
-WORKDIR /src
+WORKDIR /psweb-app
 
-# Install dependencies
+# Install node dependencies
 RUN  npm install
 
 EXPOSE 8080
